@@ -1,0 +1,36 @@
+group 'net.portswigger'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly "net.portswigger.burp.extender:burp-extender-api:${burpExtenderApiVersion}"
+    compile fileTree(dir: "lib", include: "*.jar")
+
+    compile "org.apache.xmlgraphics:batik-transcoder:${apacheXmlGraphicsVersion}"
+
+    testCompile(
+            "net.portswigger.burp.extender:burp-extender-api:${burpExtenderApiVersion}",
+            "org.junit.jupiter:junit-jupiter:${junit5Version}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "org.mockito:mockito-core:${mockitoVersion}"
+    )
+}
+
+jar {
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

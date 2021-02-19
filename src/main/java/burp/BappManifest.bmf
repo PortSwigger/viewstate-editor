@@ -1,0 +1,10 @@
+Uuid: ba17d9fb487448b48368c22cb70048dc
+ExtensionType: 1
+Name: ViewState Editor
+RepoName: viewstate-editor
+ScreenVersion: 1.0
+SerialVersion: 1
+MinPlatformVersion: 0
+ProOnly: False
+Author: PortSwigger Web Security - Mike Smith
+ShortDescription: Displays the contents of V1.1 and V2.0 ASP view state data.
